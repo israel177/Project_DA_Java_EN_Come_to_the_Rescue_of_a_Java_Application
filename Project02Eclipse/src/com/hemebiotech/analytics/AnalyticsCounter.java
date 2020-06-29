@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.util.List;
 import java.util.TreeMap;
 
+/**
+ * lit les symptoms conpte les occurence et les renvois dans une treemap
+ */
 public class AnalyticsCounter {
 	TreeMap<String, Integer> symptomsCounter;
 
@@ -12,6 +15,11 @@ public class AnalyticsCounter {
 		this.symptomsCounter = new TreeMap<String, Integer>();
 	}
 
+	/**
+	 * method countSymptoms elle lit les symtpoms les met dans l'orde alfabetique
+	 * et elle compte les occurence
+ 	 * @param symptoms il donne accéer au symtpoms
+	 */
 	public void countSymtpoms(List<String> symptoms) {
 		for (String symptom : symptoms) {
 			Integer value = symptomsCounter.get(symptom);
@@ -21,6 +29,10 @@ public class AnalyticsCounter {
 			symptomsCounter.put(symptom, value);
 		}
 	}
+
+	/**
+	 * method writResult ecrit le resulta de la method countSymptoms
+	 */
 	public void writeResult() {
 		FileWriter writers = null;
 		try {
