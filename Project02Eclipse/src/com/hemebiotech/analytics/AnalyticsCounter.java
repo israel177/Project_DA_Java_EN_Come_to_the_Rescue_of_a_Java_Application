@@ -1,5 +1,7 @@
 package com.hemebiotech.analytics;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -19,5 +21,20 @@ public class AnalyticsCounter {
 			symptomsCounter.put(symptom, value);
 		}
 	}
-
+	public void writeResult() {
+		FileWriter writers = null;
+		try {
+			writers = new FileWriter("result.out");
+			writers.write(symptomsCounter.toString());
+		} catch (IOException e) {
+		} finally {
+			try {
+				if (writers != null) {
+					writers.close();
+				}
+			} catch (IOException e) {
+				System.out.println(e);
+			}
+		}
+	}
 }
